@@ -42,7 +42,7 @@ app.get("/books/", async (request, response) => {
 //registered API
 app.post("/users/", async (request, response) => {
   const { username, name, password, gender, location } = request.body;
-  const hashedPassword = bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
   const selectuserQuery = `
    SELECT *
    FROM user
